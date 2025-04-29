@@ -1,0 +1,37 @@
+package com.test.basic;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.test.basic.dto.Member;
+import com.test.basic.dto.User;
+
+@SpringBootTest
+class BuildTest {
+	
+	@Test
+	void test() {
+		//빌더 패턴
+		Member m1 = new Member();
+		
+		m1.setSeq(1L);
+		m1.setName("강아지");
+		m1.setAge(2);
+		m1.setAddress("서울시");
+		m1.setGender("m");
+		
+		System.out.println(m1);
+		
+		
+		Member m2 = new Member(2L,"고양이",3,"인천시","f");
+		
+		System.out.println(m2);
+		
+		//Member m3 = new Member(3L,"병아리","f");
+		
+		User u1 = new User.Builder().setSeq(4L);
+		
+		
+	}
+	
+}

@@ -1,0 +1,13 @@
+spring.application.name=mybatis
+
+# DB 설정
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521/xe
+spring.datasource.username=springboot
+spring.datasource.password=java1234
+
+
+server.port=8090
+
+#Mybatis 설정
+mybatis.config-location=classpath:config/mybatis-config.xml

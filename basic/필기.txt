@@ -1,0 +1,58 @@
+Spring Boot + 이것저것
+
+1. 프로젝트 생성
+- Name: "basic"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "mybatis"
+- Package name: "com.test.basic"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+	- Lombok
+	- Spring Web
+	- Spring Boot DevTools
+
+
+1. Spring Boot DevTools
+- "com.test.basic.controller" "TestController.java"
+- 자바파일, 설정파일 > 변경 감지 > 애플리케이션 자동 재시작
+- 서버가 재시작 > 브라우저 자동 새로고침(Live Server 역할)
+- JSP, Thymeleaf 등 캐시를 꺼준다.
+- 배포/운영 시 > 자동으로 비활성화
+
+2. 빌더 패턴(디자인 패턴)
+- src/test/java > com.test.basic > "BuildTest.java"
+- "com.test.basic.dto" > "Member.java" //평소 방식
+                       > "User.java"   //빌더 패턴
+                       > "Student.java"//빌더 패턴(Lombok)
+
+3. 스프링 부트에서 스프링 빈 생성하기(총 정리)
+
+3.1 XML
+	- 거의 사용 안함
+	- src/main/resources > "config" > "test.xml"
+	- @ImportResource("classpath:config/test.xml")
+
+3.2 어노테이션
+	- @Component
+
+3.3 자바
+	- "com.test.basic.config" > "BoardConfig.java"
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	

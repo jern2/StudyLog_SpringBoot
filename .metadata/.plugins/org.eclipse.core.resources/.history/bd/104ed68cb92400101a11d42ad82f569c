@@ -1,0 +1,24 @@
+package com.test.mybatis.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.test.mybatis.mapper.AddressMapper;
+
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@NoArgsConstructor
+public class MyBatisController {
+	
+	private final AddressMapper mapper ;
+	
+	@GetMapping("/time")
+	public String time() {
+		
+		return mapper.time();
+	}
+	
+}

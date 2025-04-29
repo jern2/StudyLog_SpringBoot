@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.test.project.model.MemberDTO" alias="mdto"/>
+		<typeAlias type="com.test.project.model.AuthDTO" alias="adto"/>
+		<typeAlias type="com.test.project.model.BoardDTO" alias="bdto"/>
+		<typeAlias type="com.test.project.model.CommentDTO" alias="cdto"/>
+		
+		<typeAlias type="com.test.project.model.TagDTO" alias="tdto"/>
+		<typeAlias type="com.test.project.model.TaggingDTO" alias="tgdto"/>
+	</typeAliases>
+	
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</typeAliases>
+	
+</configuration>
+
+
+
+
+
+

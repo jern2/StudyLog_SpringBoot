@@ -1,0 +1,54 @@
+Spring Boot
+- Spring 하위 프로젝트 중 하나
+- 기존 스프링 환경 > 생성 + 설정 > 난이도 있음
+- 초기 설정과 관련된 대부분을 자동화
+- Spring Initialzr
+
+실행
+- com.test.begin > BeginApplication.java > main 메서드
+
+- 기존 레거시 > 프로젝트를 톰캣에 등록 > 톰캣을 통해서 실행
+- 스프링 부트 > 독립된 자바 애플리케이션 > 프로그램 내부에 톰캣 > 사이트
+
+
+Spring Boot 프로젝트 구조
+- src/main/java
+	- 이전과 동일 > 자바 소스 폴더 > 패키 or 파일(.java)
+	- com.test.begin > BeginApplication > 메인 클래스(main 메서드)
+
+- src/main/resources
+	- 이전 > log4j, mybatis 등..
+	- templates
+		- 이전의 views 폴더 역할
+		- 뷰 파일을 저장하는 폴더
+	- static
+		- 정적 웹 자원(HTML, CSS, JavaScript, 이미지 등..)
+		- 이전 수업(webapp > resources 역할)
+		- "hello.html"
+		- URL > http://localhost:8080/hello.html
+	- application.properties
+		- 스프링 부트 or 톰캣 > 대부분의 설정
+		- application.properties
+		- application.yaml or application.yml
+	
+- src/test/java
+	- 단위 테스트
+	- @SpringBootTest > 단위 테스트를 위한 모든 설정이 완료
+	- JUnit5 > 일부 어노테이션 or 일부 assert 메서드가 변경
+
+- build.gradle
+	- Gradle 빌드 도구의 설정 파일
+	- Maven의 pom.xml 파일과 같은 역할	
+
+테스트
+- "com.test.begin.controller" > "TestController.java"
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+package com.test.basic.dto;
+
+public class Student {
+
+}

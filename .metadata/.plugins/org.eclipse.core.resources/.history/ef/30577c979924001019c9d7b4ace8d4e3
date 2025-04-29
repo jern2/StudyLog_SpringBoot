@@ -1,0 +1,7 @@
+spring:
+application:
+name: begin
+
+server:
+port: 8090
+			

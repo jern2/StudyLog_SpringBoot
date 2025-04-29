@@ -1,0 +1,48 @@
+Spring Boot + MyBatis
+
+1. 프로젝트 생성
+- Name: "mybatis"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "mybatis"
+- Package name: "com.test.mybatis"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+	- Lombok
+	- Spring Web
+	- Oracle Driver
+	- MyBatis Framework
+
+
+2. DB Connection 설정 > DBCP > HikariCP 설정(스프링 부트 기본 DBCP)
+- JDBC, MyBatis, JPA > 모든 DB 작업의 공통 설정
+
+2.1 application.properties
+
+2.2 단위 테스트
+- src/test/java > com.test.mybatis > "ConnectionTests.java"
+
+
+3. 파일
+- "com.test.mybatis.controller" > "MyBatisController.java"
+- "com.test.mybatis.mapper" > "AddressMapper.java"(I)
+- "com.test.mybatis.dto" > "AddressDTO.java"
+- src/main/resources > "com" > "test" > "mybatis" > "mapper" > "AddressMapper.xml"
+
+- src/main/resources > "config" > "mybatis-config.xml"
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

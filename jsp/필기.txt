@@ -1,0 +1,61 @@
+Spring Boot + JSP
+
+- 이전 수업: 독립된 톰캣 사용
+	- 설치: 직접 설치
+	- 배포: 톰캣 먼저 설치 후 war(zip) 파일로 배포
+	- 설정: server.xml > 모든 사이트가 같은 하나의 톰캣을 사용
+	- 환경: 하나의 서버 환경 + 대규모
+	- Servlet/JSP 컨테이너 포함
+	
+- 이후 수업: 내장된 톰캣 사용
+	- 설치: 스프링 부트 포함
+	- 배포: jar/war 파일로 배포
+	- 설정: application.properties > 사이트마다 각자 설정
+	- 환경: 분산, 마이크로서비스아키텍처(MSA), 모바일 서버 환경 등 소규모에서 사용
+	- Servlet/JSP 컨테이너 미포함
+	
+
+
+프로젝트 생성
+- Name: "jsp"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "jsp"
+- Package name: "com.test.jsp"
+- Java: 17
+- Packaging: war
+- Dependencies:
+	- Spring Web
+
+
+JSP 설정
+1. build.gradle(=pom.xml)
+	- JSP 관련 의존성 추가
+	- 의존성 정의 > configuration들..
+	a. comileOnly > 컴파일시에만 사용. 빌드 시 결과물에서 제외
+	b. runtimeOnly > 런타임시에만 사용
+	c. annotaionProcessor > 어노테이션 사용
+	d. implementation > 컴파일 + 런타임 = a + b
+	e. testCompileOnly > 테스트 코드 컴파일시에만 사용
+	f. testRuntimeOnly > 테스트 코드 런타임시에만 사용
+	g. testImplementation > 테스트 코드 컴파일 + 런타임 = e + f
+	h. developmentOnly > 개발때만 사용 + 배포는 제외
+
+	- pom.xml 수정 > 아무것도 안해도 됨 > 자동 갱신 or update project
+	- build.gradle 수정 > 반드시 직접 업데이트
+
+2. application.properties
+	
+3. 파일 생성
+	- "com.test.jsp.controller" > "TestController.java"
+	- src/main/webapp/WEB-INF/views > "test.jsp"
+
+
+
+
+
+
+
+
+	

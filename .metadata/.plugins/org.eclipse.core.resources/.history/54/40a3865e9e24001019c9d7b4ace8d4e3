@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <style>
+        body { 
+            margin: 0; 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        header, section, footer {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 24px;
+            margin: 0;
+        }
+        section {
+            background: #fff;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .skills, .projects, .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .project-item {
+            background: #eee;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            text-align: left;
+        }
+        footer {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hello, I'm [Your Name]</h1>
+    <p>Web Developer | Backend Engineer</p>
+</header>
+
+<section class="about">
+    <h2>About Me</h2>
+    <p>자기소개 간단히. 관심 분야, 목표 등.</p>
+</section>
+
+<section class="skills">
+    <h2>Skills</h2>
+    <p>HTML, CSS, JavaScript, Java, Spring, MySQL 등</p>
+</section>
+
+<section class="projects">
+    <h2>Projects</h2>
+    <div class="project-item">
+        <h3>Project Title 1</h3>
+        <p>프로젝트 설명. 사용 기술, 기여한 부분.</p>
+    </div>
+    <div class="project-item">
+        <h3>Project Title 2</h3>
+        <p>프로젝트 설명. 사용 기술, 기여한 부분.</p>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+    <p>GitHub: github.com/yourname</p>
+</section>
+
+<footer>
+    © 2025 [Your Name]. All rights reserved.
+</footer>
+
+</body>
+</html>

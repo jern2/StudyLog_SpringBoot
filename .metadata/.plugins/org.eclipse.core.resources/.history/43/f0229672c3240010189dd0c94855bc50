@@ -1,0 +1,17 @@
+package com.test.basic;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class BuildTest {
+	
+	@Test
+	void test() {
+		//빌더 패턴
+		Member m1 = new Member();
+		
+		
+	}
+	
+}

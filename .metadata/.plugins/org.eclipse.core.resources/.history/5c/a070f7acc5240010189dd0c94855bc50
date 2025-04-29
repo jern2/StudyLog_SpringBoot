@@ -1,0 +1,39 @@
+package com.test.basic.dto;
+
+public class User {
+	
+	private Long seq;
+	private String name; 
+	private Integer age;
+	private String address;
+	private String gender;
+	
+	
+	public static class Builder{
+		private Long seq;
+		private String name; 
+		private Integer age;
+		private String address;
+		private String gender;
+		
+		
+		public Builder setSeq(Long seq) {
+			this.seq = seq;
+			return this;
+		}
+		
+		public Builder setName(String name) {
+			this.name= name;
+			return this;
+		}
+		
+		public Builder setAge(Integer age) {
+			this.name= name;
+			return this;
+		}
+		public Builder setName(String name) {
+			this.name= name;
+			return this;
+		}
+	}
+}
