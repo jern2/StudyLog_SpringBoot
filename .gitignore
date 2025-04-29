@@ -1,0 +1,34 @@
+# Java 빌드 파일
+*.class
+
+# Maven 빌드 폴더
+/target/
+
+# Gradle 빌드 폴더
+/build/
+
+# IDE 설정 파일
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.swp
+*.bak
+
+# 운영체제 생성 파일
+.DS_Store
+Thumbs.db
+
+# 환경설정 파일 (비밀번호, API키 담긴거)
+/application-*.properties
+/application-*.yml
+
+# 테스트 결과 폴더
+/test-output/
