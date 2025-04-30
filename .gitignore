@@ -32,3 +32,5 @@ Thumbs.db
 
 # 테스트 결과 폴더
 /test-output/
+/.metadata/
+.metadata/
