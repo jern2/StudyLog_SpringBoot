@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- m1.html -->
+    <h1>Thymeleaf</h1>
+ 
+   <h2>변수 표현식</h2>
+   <div>단일값: ${count} </div>
+   <div th:text="${count}">단일값 :</div>
+   <div th:text="count"></div>
+   <div th:text="홍길동"></div>
+    
+    <hr>
+    
+    <div>이름 : 홍길동</div>
+    <div th:text="${name}">이름: </div>
+    <div th:text="'이름 : '+ ${name}"></div>
+    <div>이름 : <span th:text="${name}"></span></div>
+    
+    <hr>
+    
+    <!-- 객체 출력 -->
+    <ul>
+        <li th:text="${dto}"></li>
+        <li th:text="${dto.getName()}"></li>
+        
+        <li th:text="${dto.name}"></li>
+        <li th:text="${dto.seq}"></li>
+        <li th:text="${dto.age}"></li>
+        <li th:text="${dto.address}"></li>
+        <li th:text="${dto.gender}"></li>
+    
+    </ul>
+    
+    <!-- Selection -->
+    <ul th:object="${dto}">   
+        <li th:text="*{name}"></li>
+        <li th:text="*{seq}"></li>
+        <li th:text="*{age}"></li>
+        <li th:text="*{address}"></li>
+        <li th:text="*{gender}"></li>
+    </ul>
+    
+    <ul>   
+        <li th:text="${map}"></li>
+        <li th:text="${map.get('red')}"></li>
+        <li th:text="${map.red}"></li>
+        <li th:text="${map.blue}"></li>
+        <li th:text="${map.yellow}"></li>
+    </ul>
+    <ul th:object="${map}">   
+        <li th:text="*{red}"></li>
+        <li th:text="*{blue}"></li>
+        <li th:text="*{yellow}"></li>
+    </ul>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+

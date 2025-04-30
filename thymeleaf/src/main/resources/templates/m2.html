@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- m2.jsp -->
+    <h1>스프링 메세지 + 다국어(Local)</h1>
+    <h2 th:text="#{language}"></h2>
+    <h3 th:text="#{author}"></h3>
+    
+    <ul>
+        <li th:text="#{item.title}">
+        <li th:text="#{item.name}">
+        <li th:text="#{item.color}">
+        <li th:text="#{item.option}">
+        <li th:text="#{item.desc(#{item.name},#{item.color})}">
+        
+    
+    </ul>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+
