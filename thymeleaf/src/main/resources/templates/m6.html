@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -14,14 +13,13 @@
     <h1>포맷팅</h1>
     
     <h2>숫자</h2>
-    
-    <div th:text="${num1}"></div>    
-    <div th:text="${#numbers.formatInteger(num1,0,'COMMA')}"></div>    
+    <div th:text="${num1}"></div>
+    <div th:text="${#numbers.formatInteger(num1, 0, 'COMMA')}"></div>
     
     <div th:text="${num2}"></div>
-    <div th:text="${#numbers.formatInteger(num2,0,'COMMA')}"></div>
-    <div th:text="${#numbers.formatDecimal(num2,0,1)}"></div>
-    <div th:text="${#numbers.formatDecimal(num2,0,'COMMA',1,'POINT')}"></div>
+    <div th:text="${#numbers.formatInteger(num2, 0, 'COMMA')}"></div>
+    <div th:text="${#numbers.formatDecimal(num2, 0, 1)}"></div>
+    <div th:text="${#numbers.formatDecimal(num2, 0, 'COMMA', 1, 'POINT')}"></div>
     
     <h2>날짜</h2>
     <!-- <div th:text="${now}"></div> -->
@@ -37,17 +35,10 @@
     <div th:text="${#dates.dayOfWeek(now)}"></div>
     <div th:text="${#dates.dayOfWeekName(now)}"></div>
     <div th:text="${#dates.dayOfWeekNameShort(now)}"></div>
-
-
-
+    
     <div th:text="${#dates.format(now)}"></div>
-    <div th:text="${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}"></div>
-    <div th:text="${#dates.format(now,'yyyy-MM-dd aa hh:mm:ss')}"></div>
-
-
-
-
-
+    <div th:text="${#dates.format(now, 'yyyy-MM-dd HH:mm:ss')}"></div>
+    <div th:text="${#dates.format(now, 'yyyy-MM-dd aa hh:mm:ss')}"></div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>

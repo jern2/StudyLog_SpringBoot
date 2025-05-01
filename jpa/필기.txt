@@ -1,0 +1,52 @@
+JPA, Java Persistence API
+- 자바 진영에서 ORM(Object-Relational Mapping) 기술 표준으로 사용되는 인터페이스의 모음
+- ORM
+
+JDBC 기반 기술
+1. MyBatis
+    - Mapping Framework
+    - Java <- 중간 변환 역할 -> Oracle(SQL)
+2. JPA
+    - ORM
+    - Java <-> Oracle(SQL X)
+    - 모든 DB의 자료 > 자바처럼 접근 + 조작
+    
+1. 프로젝트 생성
+- Name: "jpa"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "thymeleaf"
+- Package name: "com.test.jpa"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+    - Lombok
+    - Spring Web
+    - Oracle Driver
+    - Spring Boot DevTools
+    - Thymeleaf
+    - Spring Data JPA
+
+2. JPA 설정
+    - build.gradle(나중에)
+    - application.yml
+
+3. 파일
+    - jpa > "script.sql"
+    - "com.test.jpa.controller" > "TestController.java"
+    - "com.test.jpa.entity" > "Address.java" //DTO 역할
+    - "com.test.jpa.repository" > "AddressRepository.java"(I) //DAO 역할
+    - "com.test.jpa.dto" > "AddressDTO.java"
+    - src/test/java > com.test.jpa > "AddressRepositoryTests.java"
+    
+    
+
+
+
+
+
+
+
+
+    

@@ -1,0 +1,45 @@
+Thymeleaf
+- 자바 템플릿 엔진
+- 서버 측 자바 웹 애플리케이션에서 HTML을 생성하는 데 사용되는 템플릿 엔진
+- JSP 역할(JSP는 톰캣에 종속적이다.)
+- Thymeleaf, Freemaker, Mustach, Velocity 
+
+1. 프로젝트 생성
+- Name: "thymeleaf"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "thymeleaf"
+- Package name: "com.test.thymeleaf"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+	- Lombok
+	- Spring Web
+	- Oracle Driver
+	- MyBatis Framework
+	- Spring Boot DevTools
+	- Thymeleaf
+
+2. MyBatis 설정
+- resources > application.yml
+- src/test/java > com.test.thymeleaf > "ConnectionTests.java"
+
+3. 파일
+- "com.test.thymeleaf.controller" > "TestController.java"
+- "com.test.thymeleaf.mapper" > "AddressMapper.java"(I)
+- "com.test.thymeleaf.dto" > "AddressDTO.java"
+- src/main/resources > "mapper" > "AddressMapper.xml"
+
+4. 로그 설정
+- build.gradle 수정
+- 파일 2개 복사
+- application.yml 수정
+
+
+
+
+
+
+
+

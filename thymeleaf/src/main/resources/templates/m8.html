@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- m8.html -->
+    <th:block th:insert="~{inc/sub2.html :: title('Thymeleaf', '제어문')}"></th:block>
+    
+    <!-- 
+    <c:if test="${seq > 0}">
+    <div>${seq}는 양수입니다.</div>
+    </c:if> 
+    -->
+    
+    <div th:if="true"><span th:text="${seq}"></span>는 양수입니다.</div>
+    <div th:if="false"><span th:text="${seq}"></span>는 양수입니다.</div>
+    
+    <div th:if="${seq > 0}"><span th:text="${seq}"></span>는 양수입니다.</div>
+    <div th:if="${seq > 0}" th:text="${seq} + '는 양수입니다.'"></div>
+    <div th:if="${seq > 0}" th:text="|${seq}는 양수입니다.|"></div>
+    <div th:if="${seq > 0}">[[${seq}]]는 양수입니다.</div>
+    
+    <hr>
+    
+    <div th:if="${seq > 0}">양수입니다.</div>
+    <div th:if="${seq < 0}">음수입니다.</div>
+    <div th:if="${seq == 0}">0입니다.</div>
+    
+    <div th:if="${seq > 0}">양수입니다.</div>
+    <div th:unless="${seq > 0}">0 or 음수입니다.</div>
+    
+    <hr>
+    
+    <div th:switch="${mode}">
+        <div th:case="add">추가하기</div>
+        <div th:case="edit">수정하기</div>
+        <div th:case="del">삭제하기</div>
+        <div th:case="*">기타</div>
+    </div>
+    
+    <hr>
+    
+    <!--  
+    <c:forEach>
+    <div>이름</div>
+    </c:forEach>
+    -->
+    
+    <div th:each="name : ${names}">
+        <div th:text="${name}"></div>
+    </div>
+    
+    <hr>
+    
+    <div th:each="name : ${names}" th:text="${name}">이름</div>
+    
+    <hr>
+    
+    <ul>
+        <li th:each="name : ${names}" th:text="${name}"></li>
+    </ul>
+    
+    <hr>
+    
+    <th:block th:each="dto : ${list}">
+	    <h3 th:text="${dto.name}">홍길동</h3>
+	    <ul>
+	        <li th:text="${dto.age}">나이가 출력됩니다.</li>
+	        <li th:text="${dto.address}">주소가 출력됩니다.</li>
+	        <li th:text="${dto.gender}">성별이 출력됩니다.</li>
+	    </ul>
+    </th:block>
+    
+    <hr>
+    
+    <th:block th:each="dto : ${list}" th:object="${dto}">
+        <h3 th:text="*{name}">홍길동</h3>
+        <ul>
+            <li th:text="*{age}">나이가 출력됩니다.</li>
+            <li th:text="*{address}">주소가 출력됩니다.</li>
+            <li th:text="*{gender}">성별이 출력됩니다.</li>
+        </ul>
+    </th:block>
+    
+    <hr>
+    
+    <div>글번호는 <span th:text="${seq}">10</span>번입니다.</div>
+    <div>글번호는 <th:block th:text="${seq}">10</th:block>번입니다.</div>
+    
+    <hr>
+    
+    <div th:each="num : ${#numbers.sequence(1, 10)}" th:text="${num}"></div>
+    
+    <hr>
+    
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <!-- <c:forEach items="${list}" var="dto" varStatus="stat"> -->
+        <tr th:each="dto, status : ${list}">
+            <td th:text="${dto.seq}"></td>
+            <td th:text="${dto.name}"></td>
+            <td th:text="${dto.age}"></td>
+            <td th:text="${dto.gender}"></td>
+            <td th:text="${status.index}"></td>
+            <td th:text="${status.count}"></td>
+            <td th:text="${status.size}"></td>
+            <td th:text="${status.even}"></td>
+            <td th:text="${status.odd}"></td>
+            <td th:text="${status.first}"></td>
+            <td th:text="${status.last}"></td>
+        </tr>
+    </table>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+
+

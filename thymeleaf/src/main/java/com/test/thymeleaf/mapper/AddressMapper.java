@@ -8,6 +8,7 @@ import com.test.thymeleaf.dto.AddressDTO;
 
 @Mapper
 public interface AddressMapper {
+	
 	String time();
 
 	int count();
@@ -19,4 +20,10 @@ public interface AddressMapper {
 	List<String> names();
 
 	List<AddressDTO> list();
+
 }
+
+
+
+
+

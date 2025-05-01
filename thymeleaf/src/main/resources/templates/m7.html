@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -10,35 +9,33 @@
     </style>
 </head>
 <body>
-    <!-- m 7.html -->
-    <h1>링크 표현식<small>쿼리스트링</small></h1>
+    <!-- m7.html -->
+    <h1>링크 표현식 <small>쿼리 스트링</small></h1>
     
     <div>
+        
         <a href="/list.do?seq=10">돌아가기</a>
         <a href="/list.do?seq=${seq}">돌아가기</a>
-
-        <a th:href="'/list.do?seq='+ ${seq}">돌아가기</a>
+        
+        <a th:href="'/list.do?seq=' + ${seq}">돌아가기</a>
         <a th:href="|/list.do?seq=${seq}|">돌아가기</a>
         <a href="/list.do?seq=[[${seq}]]">돌아가기</a>
-
+        
         <a th:href="@{/list.do(seq=10,ing=y)}">돌아가기</a>
-        <a th:href="@{/list.do(seq=${seq})}">돌아가기</a>
-        <a th:href="@{/list.do(seq=${seq},mode=${mode})}">돌아가기</a>
-    
-    
-    <hr>
-    
-    <a th:href="@{/list.do(search=${map.search}, column=${map.column}, word=${map.word})}">돌아가기</a>
-    
-    <hr>
-    
-    <a href="/view/10">회원정보</a>
-    <a th:href="@{/view(seq=${seq})}">회원정보</a>
-    <a th:href="@{/view/{seq}(aaa=${seq})}">회원정보</a>
-    
-    
+        <a th:href="@{/list.do(seq=${seq}, mode=${mode})}">돌아가기</a>
+        
+        <hr>
+        
+        <!-- list.do?search=y&column=content&word=자바 -->
+        <a th:href="@{/list.do(search=${map.search}, column=${map.column}, word=${map.word})}">돌아가기</a>
+        
+        <hr>
+        
+        <a href="/view/10">회원 정보</a>
+        <a th:href="@{/view(seq=${seq})}">회원 정보</a>
+        <a th:href="@{/view/{seq}(seq=${seq})}">회원 정보</a>
+        
     </div>
-   
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>

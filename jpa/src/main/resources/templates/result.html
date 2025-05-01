@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- result.html -->
+    <h1>Spring Data JPA</h1>
+    
+    <div th:text="${address}"></div>
+    <div th:text="${address.name}" th:if="${address}"></div>
+    
+    <div th:if="${count}" th:text="${count}"></div>
+    
+    <div th:if="${exist}">1번 회원 있음</div>
+    <div th:unless="${exist}">1번 회원 없음</div>
+    
+    <hr>
+    
+    <table th:if="${list}">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+            <th>설명</th>
+        </tr>
+        <tr th:each="entity : ${list}" th:object="${entity}">
+            <td th:text="*{seq}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{age}"></td>
+            <td th:text="*{address}"></td>
+            <td th:text="*{gender}"></td>
+        </tr>
+    </table>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+

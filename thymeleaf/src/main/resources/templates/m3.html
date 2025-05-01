@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -10,80 +9,86 @@
     </style>
 </head>
 <body>
-    <!--m3.jsp -->
+    <!-- m3.html -->
     <h1>연산자</h1>
     
-    <!-- 타임리프 상수표현 (리터럴)
-        - String : 'hong','test','100'
-        - Number: 10,123,3.14
-        - Boolean: true,false
-        - Null: null
+    <!--  
+        타임리프 상수표현(리터럴)
+        - String: 'hong', 'test', '100'
+        - Number: 10, 123, 3.14
+        - Boolean: true, false
+        - Null: null 
+        
+        타임리프 연산자(자바,EL)
+        - 산술 연산자 > 동일
+        - 비교 연산자 > 동일
+        - 논리 연산자 > 동일
+        - 삼항 연산자 > 동일
+        
+    -->
+    <div>10 + 3 = 13</div>
+    <div><span th:text="${a}">10</span> + <span th:text="${b}">3</span> = <span th:text="${a + b}">13</span></div>
     
-        타임리프 연산자
-        - 산술 연살자 > 동일 
-     -->
+    <div th:text="${'10 + 3 = 13'}"></div>
+    <div th:text="${a + ' + ' + b + ' = ' + (a + b)}"></div>
+    <div th:text="${a} + ' + ' + ${b} + ' = ' + ${a + b}"></div>
     
-    <div> 10+ 3 = 13</div>
-    <div> <span th:text="${a}">10</span> + <span th:text="${b}">3</span> = <span th:text="${a+b}">13</span></div>
-    
-     <div th:text="${'10 + 3 = 13'}"></div>
-     <div th:text="${a + ' + '+ b + ' = ' + (a+b)}"></div>
-     <div th:text="${a} + ' + ' + ${b} + ' = ' + ${a+b}"></div>
-     
-     
-    <!--/*  <div th:text="${a} + ${b} = ${a+b}"></div> */-->
+    <!--/* <div th:text="${a} + ${b} = ${a+b}"></div> */-->
     <div th:text="|${a} + ${b} = ${a+b}|"></div>
-   
-    <hr>
-    <div th:text="${a+b}"> </div>   
-    <div th:text="${a} + ${b}"></div>   
-    <div th:text="${a} - ${b}"></div>   
-    <div th:text="${a} * ${b}"></div>   
-    <div th:text="${a} / ${b}"></div>   
-    <div th:text="${a} % ${b}"></div>   
     
     <hr>
     
-   
-    <div th:text="${a} > ${b}"></div>   
-    <div th:text="${a} >= ${b}"></div>   
-    <div th:text="${a} < ${b}"></div>   
-    <div th:text="${a} <= ${b}"></div>   
-    <div th:text="${a} == ${b}"></div>   
-    <div th:text="${a} != ${b}"></div>   
+    <div th:text="${a + b}"></div>
+    <div th:text="${a} + ${b}"></div>
+    <div th:text="${a} - ${b}"></div>
+    <div th:text="${a} * ${b}"></div>
+    <div th:text="${a} / ${b}"></div>
+    <div th:text="${a} % ${b}"></div>
+    
+    <hr>
+    
+    <div th:text="${a} > ${b}"></div>
+    <div th:text="${a} >= ${b}"></div>
+    <div th:text="${a} < ${b}"></div>
+    <div th:text="${a} <= ${b}"></div>
+    <div th:text="${a} == ${b}"></div>
+    <div th:text="${a} != ${b}"></div>
+    
+    <div th:text="${a} gt ${b}"></div>
     
     
     <hr>
     
-   
-    <div th:text="true and true"></div>   
-    <div th:text="true and false"></div>   
-    <div th:text="false and false"></div>   
+    <div th:text="true and true"></div>
+    <div th:text="true and false"></div>
+    <div th:text="false and false"></div>
     
-    <div th:text="true or true"></div>   
-    <div th:text="true or false"></div>   
-    <div th:text="false or false"></div>   
-   
+    <div th:text="true or true"></div>
+    <div th:text="true or false"></div>
+    <div th:text="false or false"></div>
     
-     <div th:text="not true"></div>   
-     <div th:text="!true"></div>   
-     
-     <hr>
-     
-     
-      <div th:text="${a} > 0 ? '양수' : '양수 아님'"></div>  
-      <div th:text="${a} > 0 ? '양수'"></div>  
-      <div th:text="${a} < 0 ? '양수'"></div>  
-      <div th:text="${a} > 0 ?: '양수'"></div>  
-      <div th:text="${a} < 0 ?: '양수'"></div>  
-      
-     
-     <div th:text="${name} ? ${name} : '익명' "></div>
-     <div th:text="${name} ?: '익명' "></div>
-     
-     <!-- ?: 엘비스 연산자 -->
-     
-     
+    <div th:text="not true"></div>
+    <div th:text="!true"></div>
+    
+    <hr>
+    
+    <div th:text="${a} > 0 ? '양수' : '양수아님'"></div>
+    <div th:text="${a} > 0 ? '양수'"></div>
+    <div th:text="${a} < 0 ? '양수'"></div>
+    <div th:text="${a} > 0 ?: '양수'"></div>
+    <div th:text="${a} < 0 ?: '양수'"></div>
+    
+    <div th:text="${name} ? ${name} : '익명'"></div>
+    <div th:text="${name} ?: '익명'"></div>
+    
+    <!-- ?: 엘비스 연산자 -->
+    
+    <!--/* 
+    <div th:text="true && true"></div>
+    <div th:text="true && false"></div>
+    <div th:text="false && false"></div> 
+    */-->
+    
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>

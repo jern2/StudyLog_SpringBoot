@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -12,19 +11,55 @@
 <body>
     <!-- m1.html -->
     <h1>Thymeleaf</h1>
+    
+    <!--
+        JSP: 독립 실행 불가능
+        Thymeleaf: 독립 실행 가능
+        
+        Thymeleaf Standard Expression, 타임리프 표현식
+        - EL 역할
+        
+        1. Variable Expression, 변수 표현식
+        2. Selection Variable Expression, 선택 변수 표현식
+        3. Messaage Expression, 메시지 표현식
+        4. Link URL Expression, 링크 표현식
+        5. Fragment Expression, 조각 페이지 표현식
+        
+        1. Variable Expression, 변수 표현식
+        - ${}
+        - EL 역할
+        - 컨트롤러로부터 전달된 값을 출력/사용하는 용도
  
-   <h2>변수 표현식</h2>
-   <div>단일값: ${count} </div>
-   <div th:text="${count}">단일값 :</div>
-   <div th:text="count"></div>
-   <div th:text="홍길동"></div>
+        타임리프의 표현 대부분
+        - HTML 속성앞에 th라는 접두어를 붙여서 사용
+        
+        2. Selection Variable Expression, 선택 변수 표현식
+        - *{}
+        - 객체/맵 프로퍼티를 출력한다.
+        - 반복되는 객체/맵 표현을 줄여준다.
+        - th:object 속성과 같이 사용한다.
+        
+        3. Messaage Expression, 메시지 표현식
+        - #{}
+        - messages.properites
+        - messages_en.properites
+        - messages_ja.properites
+        
+    -->
+    <h2>변수 표현식</h2>
+    
+    <div>단일값: ${count}</div>
+    <div th:text="${count}">단일값: </div>
+    <div th:text="count"></div>
+    <div th:text="123"></div>
+    <div th:text="'홍길동'"></div>
     
     <hr>
     
-    <div>이름 : 홍길동</div>
+    <div>이름: 홍길동</div>
     <div th:text="${name}">이름: </div>
-    <div th:text="'이름 : '+ ${name}"></div>
-    <div>이름 : <span th:text="${name}"></span></div>
+    <div th:text="'이름: ' + ${name}"></div>
+    <div>이름: <span th:text="${name}">홍길동</span></div>
     
     <hr>
     
@@ -32,17 +67,15 @@
     <ul>
         <li th:text="${dto}"></li>
         <li th:text="${dto.getName()}"></li>
-        
         <li th:text="${dto.name}"></li>
         <li th:text="${dto.seq}"></li>
         <li th:text="${dto.age}"></li>
         <li th:text="${dto.address}"></li>
         <li th:text="${dto.gender}"></li>
-    
     </ul>
     
-    <!-- Selection -->
-    <ul th:object="${dto}">   
+    <!-- 2. Selection Variable Expression, 선택 변수 표현식 -->
+    <ul th:object="${dto}">
         <li th:text="*{name}"></li>
         <li th:text="*{seq}"></li>
         <li th:text="*{age}"></li>
@@ -50,18 +83,19 @@
         <li th:text="*{gender}"></li>
     </ul>
     
-    <ul>   
+    <ul>
         <li th:text="${map}"></li>
         <li th:text="${map.get('red')}"></li>
         <li th:text="${map.red}"></li>
         <li th:text="${map.blue}"></li>
         <li th:text="${map.yellow}"></li>
     </ul>
-    <ul th:object="${map}">   
+    <ul th:object="${map}">
         <li th:text="*{red}"></li>
         <li th:text="*{blue}"></li>
         <li th:text="*{yellow}"></li>
     </ul>
+    
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>

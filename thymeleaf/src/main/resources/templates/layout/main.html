@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- templates > layout > main.html -->
+    <th:block th:insert="~{inc/sub2.html :: title('Thymeleaf', 'Layout')}"></th:block>
+    
+    <div>이것 저것 공통 내용2222</div>
+    
+    <th:block layout:fragment="content"></th:block>
+    
+    <div>이것 저것 공통 내용2222</div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+

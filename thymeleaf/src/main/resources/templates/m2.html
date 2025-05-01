@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -10,19 +9,18 @@
     </style>
 </head>
 <body>
-    <!-- m2.jsp -->
-    <h1>스프링 메세지 + 다국어(Local)</h1>
+    <!-- m2.html -->
+    <h1>스프링 메시지 + 다국어(Locale)</h1>
+    
     <h2 th:text="#{language}"></h2>
     <h3 th:text="#{author}"></h3>
     
     <ul>
-        <li th:text="#{item.title}">
-        <li th:text="#{item.name}">
-        <li th:text="#{item.color}">
-        <li th:text="#{item.option}">
-        <li th:text="#{item.desc(#{item.name},#{item.color})}">
-        
-    
+        <li th:text="#{item.title}"></li>
+        <li th:text="#{item.name}"></li>
+        <li th:text="#{item.color}"></li>
+        <li th:text="#{item.option}"></li>
+        <li th:text="#{item.desc(#{item.name}, #{item.color})}"></li> 
     </ul>
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>

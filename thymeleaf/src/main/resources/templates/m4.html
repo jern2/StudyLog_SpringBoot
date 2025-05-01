@@ -1,51 +1,54 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
     <style>
-        .one{color: blue;}
-        .two{font-size: 3rem;}
-        .three{background-color: gold;}
+         .one { color: blue; }
+         .two { font-size: 3rem; }
+         .three { background-color: gold; }
     </style>
 </head>
 <body>
-    <!-- m4.jsp -->
-    <h1> HTML 속성 조작하기</h1>
+    <!-- m4.html -->
+    <h1>HTML 속성 조작하기</h1>
     
+    <!-- 
+        *** 타임리프의 표현식들은 반드시 th:속성과 같이 사용해야 한다.
+        표현식은 독립 사용이 불가능하다. 
+    -->
+    <!-- <div>${name}</div> -->
+    <div th:text="${name}">홍길동</div>
     
     <div>
-        <input type="text" name="num" th:size ="${count}">
+        <input th:type="text" th:name="num" th:size="${count}">
         <br>
         <input type="text" name="num" th:value="${name}" value="홍길동">
     </div>
-   
-   <hr>
-   
-   <div class="one" th:class="two">BOX</div>
-   <div class="one" th:attrappend="calss=' two'">BOX</div>
-   <div class="one" th:attrprepend="calss=' two '">BOX</div>
-   <div class="one" th:classappend="three"> BOX</div>
+    
+    <hr>
+    
+    <div class="one" th:class="two">Box</div>
+    <div class="one" th:attrappend="class=' two'">Box</div>
+    <div class="one" th:attrprepend="class='two '">Box</div>
+    <div class="one" th:classappend="three">Box</div>
     
     <hr>
     
     <div>
-    <input type="checkbox" checked>
-    <input type="checkbox" th:checked = "true">
-    <input type="checkbox" th:checked = "false">
-    <input type="checkbox" th:checked = "${count > 0}">
+        <input type="checkbox" checked>
+        <input type="checkbox" th:checked="true">
+        <input type="checkbox" th:checked="false">
+        <input type="checkbox" th:checked="${count > 0}">
     </div>
     
     <hr>
     
     <div style="background-color: cornflowerblue;">상자</div>
-    <div th:style="'background-color: '+ ${color}">상자</div>
+    <div th:style="'background-color: ' + ${color}">상자</div>
     <div th:style="|background-color: ${color};|">상자</div>
     
-    
-     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>
     <script>

@@ -8,35 +8,36 @@
     <select id="time" resultType="String">
         select sysdate from dual
     </select>
-      
-     <!--int count();--> 
+    
+    <!-- int count(); -->
     <select id="count" resultType="Integer">
         select count(*) from tblAddress
     </select>
     
-    <!--String getName(int seq);--> 
+    <!-- String getName(int seq); -->
     <select id="getName" parameterType="Integer" resultType="String">
         select name from tblAddress where seq = #{seq}
     </select>
-    
-    <!--AddressDTO get(int seq);--> 
+
+    <!-- AddressDTO get(int seq); -->
     <select id="get" parameterType="Integer" resultType="AddressDTO">
         select * from tblAddress where seq = #{seq}
     </select>
     
-    
-    <!--List<String> names();-->
+    <!-- List<String> names(); -->
     <select id="names" resultType="String">
         select name from tblAddress
     </select>
-    
-    
-    <!--List<AddressDTO> list();-->
+
+    <!-- List<AddressDTO> list(); -->
     <select id="list" resultType="AddressDTO">
         select * from tblAddress
     </select>
-    
+      
 </mapper>
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -12,72 +11,99 @@
 <body>
     <!-- m5.html -->
     <h1>콘텐츠 조작</h1>
+    <!--/*  
+        <태그>내용물</태그>
+        - PCDATA 조작
+        - 자식 태그 조작
+        - innerText(textContent)
+        - innerHTML
+        
+        Thymeleaf Text
+        1. th:text
+            - escaped text
+            - innerText
+        
+        2. th:utext
+            - unescaped text
+            - innerHTML
+        
+        인라인 출력
+            - th:inline="text"(default)
+            - th:inline="javascript"
+            - th:inline + [[]] > escaped text
+            - th:inline + [()] > unescaped text
+        
+    */-->
     <div th:text="${txt1}"></div>
     <div th:text="${txt2}"></div>
-
+    
     <div th:utext="${txt1}"></div>
     <div th:utext="${txt2}"></div>
     
     <div th:text="'<input type=text>'"></div>
     <div th:utext="'<input type=text>'"></div>
-   
+    
     <hr>
     
-    <div th:text ="${txt1}" th:inline="text"></div>
-    <div th:inline = "text">[[${txt1}]]</div>
+    <div th:text="${txt1}" th:inline="text"></div>
+    <div th:inline="text">[[${txt1}]]</div>
     <div>[[${txt1}]]</div>
     <div>[[${txt2}]]</div>
     
-    <div th:utext ="${txt2}" th:inline="text"></div>
-     <div th:inline = "text">[(${txt2})]</div>
+    <div th:utext="${txt2}" th:inline="text"></div>
+    <div th:inline="text">[(${txt2})]</div>
     
-   <hr>
-   
-   <!-- PCDATA 조작 -->
-   <div>이름 : 홍길동</div>
-   <div>이름: <span th:text="${name}">홍길동</span></div>
-   <div th:text="'이름: ' + ${name}"></div>
-   <div th:text="|이름:   ${name}|"></div>
-   <div th:inline="text">이름: [[${name}]]</div>
-   <div>이름: [[${name}]]</div>
-   
-   
-   <hr>
-   <div id="list2"></div>
-   
-   
+    <hr>
     
+    <!-- PCDATA 조작 -->
+    <div>이름: 홍길동</div>
+    <div>이름: <span th:text="${name}">홍길동</span></div> **
+    <div th:text="'이름: ' + ${name}"></div>
+    <div th:text="|이름: ${name}|"></div>
+    <div th:inline="text">이름: [[${name}]]</div>
+    <div>이름: [[${name}]]</div> **
+    
+    <hr>
+    
+    <div id="list"></div>
+     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>
-    <script>
-          //let name='홍길동';
-          //alert(name);
-          let count1=[[${count}]];
-          let name1 = '[[${name}]]';
-          let dto1='[[${dto}]]';
-          let map1='[[${map}]]';
-          let names1= '[[${names}]]';
-          let list1= '[[${list}]]';
+    <script th:inline="text">
     
+        /* 자바스크립트 조작 중 컨트롤러가 보낸 값을 사용 */
+        //let name = '홍길동';
+        //alert(name);
+        
+        let count1 = [[${count}]];
+        let name1 = '[[${name}]]';
+        let dto1 = '[[${dto}]]';
+        let map1 = '[[${map}]]';
+        let names1 = '[[${names}]]';
+        let list1 = '[[${list}]]';
     </script>
     <script th:inline="javascript">
-      let count2=[[${count}]];
-      let name2 = [[${name}]];
-      let dto2= [[${dto}]];
-      let map2=[[${map}]];
-      let names2= [[${names}]];
-      let list2= [[${list}]];
-      
-      
-      list2.forEach(item =>{
-    	  $('#list').append(`
-    		<div>${item.seq}: ${item.name},${address}</div>		  
-    	  `);
-      });
-      
+        let count2 = [[${count}]];
+        let name2 = [[${name}]];
+        let dto2 = [[${dto}]];
+        let map2 = [[${map}]];
+        let names2 = [[${names}]];
+        let list2 = [[${list}]];
+        
+        list2.forEach(item => {
+        	$('#list').append(`
+        	    <div>${item.seq}: ${item.name}, ${item.address}</div>		
+        	`);
+        });
+        
     </script>
 </body>
 </html>
+
+
+
+
+
 
 
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- m9.html -->
+    <!-- templates > inc > sub1.html -->
+    <!-- templates > inc > sub2.html -->
+    <th:block th:insert="~{inc/sub2.html :: title('Thymeleaf', '조각 페이지')}"></th:block>
+    
+        
+    <!--  
+        Thymeleaf Fragment
+        
+        1. th:fragment
+        - 조각 페이지(코드) 선언
+        
+        2. th:insert
+        - 조각 페이지(코드) 삽입
+        
+        3. th:replace
+        - 조각 페이지(코드) 삽입
+        
+        
+        적용 방식
+        1. 조각 페이지 생성(sub1.html) > 조각 페이지를 통째로 삽입
+        2. 조각 페이지 생성(sub2.html) > 조각 페이지의 일부분을 삽입
+        
+        
+    -->
+    
+    <!-- <%@ include file="inc/sub1.html" %> -->
+    <p th:insert="~{inc/sub1.html}"></p>
+    <p th:replace="~{inc/sub1.html}"></p>
+    
+    <hr>
+    
+    <th:block th:insert="~{inc/sub1.html}"></th:block>
+    <th:block th:replace="~{inc/sub1.html}"></th:block>
+    
+    <hr>
+    
+    <p th:insert="~{inc/sub1.html}"></p>
+    <p th:insert="~{inc/sub1}"></p>
+    <p th:insert="inc/sub1"></p>
+    
+    <hr>
+    
+    <div th:insert="~{inc/sub2.html}"></div>
+    
+    <hr>
+    
+    <div th:insert="~{inc/sub2.html :: tel}"></div>
+    
+    <hr>
+    
+    <div th:insert="~{inc/sub2.html :: address}"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://bit.ly/4cMuheh"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
