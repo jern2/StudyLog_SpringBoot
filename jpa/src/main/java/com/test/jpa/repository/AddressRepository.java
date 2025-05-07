@@ -3,8 +3,12 @@ package com.test.jpa.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 
 //엔티티명 + "Repository"
@@ -76,6 +80,30 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 	List<Address> findByGenderOrderByAgeAsc(String string);
 
 	List<Address> findAllByOrderByGenderAscAgeDesc();
+
+	List<Address> findAllByOrderByAddressAsc();
+
+	List<Address> findByGender(Sort by, String string);
+
+	//No property 'list' found for type 'Address'
+	
+	//JPQL
+	//select * from tblAddress
+	//@Query("select a from Address as a")
+	@Query(value = "select * from tblAddress", nativeQuery = true)
+	List<Address> list();
+
+	@Query("select a.name from Address as a")
+	List<String> listName();
+
+	@Query("select a from Address as a where a.gender = ?1")
+	List<Address> list(String gender);
+
+	@Query("select a from Address as a where a.age >= :age")
+	List<Address> list(@Param(value="age") int age);
+
+	@Query("select a from Address as a where a.gender = :#{#dto.gender} and a.address like '%' || :#{#dto.address} || '%'")
+    List<Address> list(@Param("dto") AddressDTO dto);
 
 	//List<Address> findAllByOrderByGenderAgeDesc();
 	

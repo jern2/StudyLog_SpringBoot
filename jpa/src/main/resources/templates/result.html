@@ -39,6 +39,70 @@
         </tr>
     </table>
     
+    <hr>
+    
+    <table th:if="${plist}">
+        <tr>
+            <th>번호</th>
+            <th onclick="location.href='m19?page=0&size=10&sort=name,desc';">이름</th>
+            <th onclick="location.href='m19?page=0&size=10&sort=age,desc';">나이</th>
+            <th onclick="location.href='m19?page=0&size=10&sort=address,desc';">주소</th>
+            <th>설명</th>
+        </tr>
+        <tr th:each="entity : ${plist}" th:object="${entity}">
+            <td th:text="*{seq}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{age}"></td>
+            <td th:text="*{address}"></td>
+            <td th:text="*{gender}"></td>
+        </tr>
+    </table>
+    <div th:utext="${sb}"></div>
+    
+    <hr>
+    
+    <!-- <div th:text="${info}"></div> -->
+    
+    <ul th:if="${info}">
+        <li th:text="${info.seq}"></li>
+        <li th:text="${info.school}"></li>
+        <li th:text="${info.country}"></li>
+        <li th:text="${info.address.name}"></li>
+        <li th:text="${info.address.age}"></li>
+        <li th:text="${info.address.address}"></li>
+    </ul>
+    
+    <hr>
+    
+    <!-- <div th:text="${user}"></div> -->
+    
+    <ul th:if="${user}">
+        <li th:text="${user.name}"></li>
+        <li th:text="${user.age}"></li>
+        <li th:text="${user.address}"></li>
+        <li th:if="${user.memo.size() > 0}">
+            메모 목록
+            <ul>
+                <li th:each="m : ${user.memo}" th:text="${m.memo}"></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <hr>
+    
+    <table th:if="${tlist}">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr th:each="tuple : ${tlist}">
+            <td th:text="${tuple.get(0, String)}"></td>
+            <td th:text="${tuple.get(1, Integer)}"></td>
+            <td th:text="${tuple.get(2, String)}"></td>
+        </tr>
+    </table>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>
     <script>

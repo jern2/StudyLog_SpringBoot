@@ -40,7 +40,8 @@ JDBC 기반 기술
     - "com.test.jpa.dto" > "AddressDTO.java"
     - src/test/java > com.test.jpa > "AddressRepositoryTests.java"
     
-    
+    - "com.test.jpa.config" > "QueryDSLConfig.java"
+    - com.test.jpa.repository > "CustomAddressRepository.java"
 
 
 

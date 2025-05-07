@@ -16,12 +16,18 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddressDTO {
+	
 	private Long seq;
 	private String name;
 	private Integer age;
 	private String address;
 	private String gender;
 	
+	public AddressDTO(String name, Integer age, String address) {
+		this.name = name;
+		this.age = age;
+		this.address = address;
+	}
 	
 	public static Address toEntity(AddressDTO dto) {
 		
