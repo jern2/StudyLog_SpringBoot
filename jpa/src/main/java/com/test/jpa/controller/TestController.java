@@ -21,6 +21,7 @@ import com.test.jpa.config.QueryDSLConfig;
 import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 import com.test.jpa.entity.Info;
+import com.test.jpa.entity.Memo;
 import com.test.jpa.repository.AddressRepository;
 import com.test.jpa.repository.CustomAddressRepository;
 import com.test.jpa.repository.InfoRepository;
@@ -647,6 +648,17 @@ public class TestController {
 	@GetMapping("/m24")
 	public String m24(Model model) {
 		
+		//JPA 데이터 조작
+		//- DB 조작 <- 엔티티 조작 <- 리포지토리 조작 <- Query Method
+		//- DB 조작 <- 엔티티 조작 <- 리포지토리 조작 <- JPQL
+		//- DB 조작 <- 엔티티 조작 <- QClass <- 리포지토리 조작 <- Query DSL
+		
+		//- JPA + MyBatis
+		//- Controller > Service > DAO > JPARepository
+		//                             > MyBatisRepository
+		//- Controller > Service > JPADAO
+		//                       > MyBatisDAO
+				
 		//Query DSL(Domain Specific Language)
 		//- JPQL 작성을 도와주는 동적 쿼리 빌더
 		//- 대부분의 행동이 자바 메서드로 제공된다.
@@ -714,6 +726,155 @@ public class TestController {
 		//1. Tuple
 		//2. DTO
 		List<AddressDTO> list = customAddressRepository.findNameAndAgeAndAddress2();
+		
+		model.addAttribute("list", list);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m29")
+	public String m29(Model model) {
+		
+		//where() 절
+		List<Address> list = customAddressRepository.findAddressByGender("m");
+		
+		model.addAttribute("list", list);
+	
+		return "result";
+	}
+	
+	@GetMapping("/m30")
+	public String m30(Model model) {
+		
+		//정렬
+		List<Address> list = customAddressRepository.findAdressOrderBy();
+		
+		model.addAttribute("list", list);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m31")
+	public String m31(Model model, @RequestParam(name = "page", defaultValue = "1") Integer page) {
+		
+		//페이징
+		//- offset: 가져올 레코드의 시작 위치
+		//- limit: 가져올 개수
+		
+		//- offset: 0
+		//- limit: 10
+		int offset = (page - 1) * 10;
+		
+		List<Address> list = customAddressRepository.findAddressPaging(offset, 10);
+		
+		model.addAttribute("list", list);		
+		
+		return "result";
+	}
+	
+	@GetMapping("/m32")
+	public String m32(Model model) {
+		
+		Tuple tuple = customAddressRepository.findAddressAggregation();
+		
+		model.addAttribute("tuple", tuple);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m33")
+	public String m33(Model model) {
+		
+		//groupby, having
+		List<Tuple> glist = customAddressRepository.findAddressGroupByGender();
+		
+		model.addAttribute("glist", glist);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m34")
+	public String m34(Model model) {
+		
+		//Join
+		//- 1:1
+		//- Address:Info
+		List<Info> ilist = customAddressRepository.findAddressJoinInfo();
+		
+		model.addAttribute("ilist", ilist);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m35")
+	public String m35(Model model) {
+		
+		//1:N
+		//Address:Memo
+		//Address
+		//List<Address>
+		
+		List<Address> mlist = customAddressRepository.findAddressJoinMemo();
+		
+		model.addAttribute("mlist", mlist);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m36")
+	public String m36(Model model) {
+		
+		//Memo:Address:Info
+		
+		List<Info> flist = customAddressRepository.findByAddressFullJoin();
+		
+		System.out.println(flist);
+		
+		model.addAttribute("flist", flist);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m37")
+	public String m37(Model model) {
+		
+		//서브쿼리 + Query DSL
+		//- where절(O)
+		//- select절(O)
+		//- from절(X)
+		
+		//select * from tblAddress where age = (select max(age) from tblAddress);
+		List<Address> list = customAddressRepository.findAddressByMaxAge();
+		
+		model.addAttribute("list", list);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m38")
+	public String m38(Model model) {
+		
+		//select memo, (select name from tblAddress where seq = tblMemo.aseq) as name from tblMemo;
+		
+		List<Tuple> slist = customAddressRepository.findAddressMemo();
+		
+		model.addAttribute("slist", slist);
+		
+		return "result";
+	}
+	
+	@GetMapping("/m39")
+	public String m39(Model model
+		, @RequestParam(name = "gender", required = false) String gender		
+		, @RequestParam(name = "age", required = false) Integer age) {
+		
+		//동적 쿼리
+		//- /m39 > select * from tblAddress
+		//- /m39?gender=m > select * from tblAddress where gender = 'm'
+		//- /m39?age=3 > select * from tblAddress where age = 3
+		//- /m39?gender=m&age=3 > select * from tblAddress where gender = 'm' and age = 3
+		
+		List<Address> list = customAddressRepository.findAddressByMultiParameter(gender, age);
 		
 		model.addAttribute("list", list);
 		

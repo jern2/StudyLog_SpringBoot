@@ -29,7 +29,7 @@ public class Info {
 	@OneToOne
 	@JoinColumn(name = "seq")
 	private Address address;
-
+	
 }
 
 

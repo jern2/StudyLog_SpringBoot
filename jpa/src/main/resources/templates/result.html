@@ -103,6 +103,99 @@
         </tr>
     </table>
     
+    <hr>
+    
+    <div th:if="${tuple}" th:text="${tuple}"></div>
+    
+    <hr>
+    
+    <table th:if="${glist}">
+        <tr>
+            <th>성별</th>
+            <th>인원수</th>
+            <th>평균나이</th>
+        </tr>
+        <tr th:each="tuple : ${glist}">
+            <td th:text="${tuple.get(0, String)}"></td>
+            <td th:text="${tuple.get(1, Long)}"></td>
+            <td th:text="${tuple.get(2, Double)}"></td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <table th:if="${ilist}">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>학교</th>
+            <th>국가</th>
+        </tr>
+        <tr th:each="info : ${ilist}">
+            <td th:text="${info.address.name}"></td>
+            <td th:text="${info.address.age}"></td>
+            <td th:text="${info.school}"></td>
+            <td th:text="${info.country}"></td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <table th:if="${mlist}">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>메모</th>
+        </tr>
+        <tr th:each="address : ${mlist}">
+            <td th:text="${address.seq}"></td>
+            <td th:text="${address.name}"></td>
+            <td th:text="${address.age}"></td>
+            <td>
+                <ul>
+                    <li th:each="m : ${address.memo}" th:text="${m.memo}"></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <table th:if="${flist}">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>학교</th>
+            <th>국가</th>
+            <th>메모</th>
+        </tr>
+        <tr th:each="info : ${flist}">
+            <td th:text="${info.address.name}"></td>
+            <td th:text="${info.address.age}"></td>
+            <td th:text="${info.school}"></td>
+            <td th:text="${info.country}"></td>
+            <td>
+                <ul>
+                    <li th:each="m : ${info.address.memo}" th:text="${m.memo}"></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <table th:if="${slist}">
+        <tr>
+            <th>이름</th>
+            <th>메모</th>
+        </tr>
+        <tr th:each="tuple : ${slist}">
+            <td th:text="${tuple.get(1, String)}"></td>
+            <td th:text="${tuple.get(0, String)}"></td>
+        </tr>
+    </table>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>
     <script>

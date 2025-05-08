@@ -1,0 +1,72 @@
+Spring Boot + Security
+
+1. 프로젝트 생성
+- Name: "security"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "security"
+- Package name: "com.test.security"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+    - Lombok
+    - Spring Web
+    - Oracle Driver
+    - Spring Boot DevTools
+    - Thymeleaf
+    - Spring Data JPA
+    - Spring Security
+
+2. 설정
+    - application.yml
+
+3. 파일
+- "com.test.security.controller" > "TestController.java"
+- templates > "index.html"
+
+4. 접속 > deny
+- 기본 계정
+    - 아이디: user
+    - 암호: b02bf926-21a9-43bf-b7d4-5b39790ff227
+
+5. Security 환경 설정
+- 이전의 security-context.xml 파일의 역할
+- com.test.security.config > "SecurityConfig.java"
+
+6. 파일
+- com.test.security.controller > "MemberController.java"
+                               > "AdminController.java"
+                               > "AuthController.java"
+- "com.test.security.entity" > "Member.java"
+- "com.test.security.repository" > "MemberRepository.java"
+- "com.test.security.dto" > "MemberDTO.java"
+
+- templates > "member.html"
+            > "admin.html"
+            > "login.html"
+- templates > "inc" > "header.html"            
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
