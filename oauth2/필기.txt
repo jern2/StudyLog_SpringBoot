@@ -1,0 +1,79 @@
+Spring Boot + OAuth2
+
+OAuth 2.0
+- 인증을 위한 개방형 표준 프로토콜
+- 제 3자 애플리케이션(구글, 네이버, 카카오 등)이 우리를 대신해서 HTTP 서비스를 이용할 수 있는 권한을 부여하는 기능
+- 로그인 > 제 3자 애플리케이션(구글, 네이버, 카카오 등)에게 위탁
+
+
+
+1. 프로젝트 생성
+- Name: "oauth2"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "oauth2"
+- Package name: "com.test.oauth2"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+    - Lombok
+    - Spring Web
+    - Oracle Driver
+    - Spring Boot DevTools
+    - Thymeleaf
+    - Spring Data JPA
+    - Spring Security
+    - OAuth2 Client
+
+2. 데이터베이스 의존성 주석
+- builld.gradle
+    
+3. 파일
+- "com.test.oauth2.controller" > "MainController.java"
+                               > "MyController.java"
+- templates > "index.html"
+            > "my.html"
+- templates > "inc" > "header.html"                                           
+
+4. 시큐리티 설정
+- "com.test.oauth2.config" > "SecurityConfig.java"
+ 
+5. 인증 필터가 동작하는 주소(관습대로)
+
+5.1 처음 요청하는 로그인 URL
+    - OAuth2AuthorizationRequestRedirectFilter
+        - /oauth2/authorization/서비스명
+        - /oauth2/authorization/naver
+        - /oauth2/authorization/google
+
+5.2 인증 서버 > 코드를 반환받아 돌아오는 URL
+    - OAuth2LoginAuthenticationFilter
+        - /login/oauth2/code/서비스명
+        - /login/oauth2/code/naver
+        - /login/oauth2/code/google
+
+6. 로그인 관련 설정
+- application.yml
+
+7. 네이버 소셜 로그인 신청(Open API)
+- 네이버 개발자 센터
+
+8. OAuth2UserService 응답 받기
+- 인증 토큰 받은 뒤 리소스 서버로부터 개인 정보를 받는다.
+- "com.test.oauth2.service" > "CustomOAuth2UserSerivce.java"
+
+- "com.test.oauth2.dto" > "OAuth2Response.java"
+                        > "NaverResponse.java"
+                        > "GoogleResponse.java"
+                        > "UserDTO.java"
+                        > "CustomOAuth2User.java"
+
+
+
+
+
+
+
+
+

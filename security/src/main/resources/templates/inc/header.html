@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko" 
-    xmlns:th="http://www.thymeleaf.org">
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
     <!-- header.html -->
     <header th:fragment="header">
         <h1>Spring Boot Security</h1>
         <ul>
             <li><a href="/">Index</a></li>
-            <li><a href="/member">Member</a></li>
-            <li><a href="/admin">Admin</a></li>
+            
+            <th:block sec:authorize="isAnonymous()">
             <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            </th:block>
+            
+            <th:block sec:authorize="isAuthenticated()">
             <li><a href="/logout">Logout</a></li>
+            <li><a href="/member">Member</a></li>
+            <li sec:authorize="hasRole('ADMIN')"><a href="/admin">Admin</a></li>
+            </th:block>
+            
         </ul>
     </header>
     

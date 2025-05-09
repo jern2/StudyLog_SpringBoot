@@ -1,4 +1,4 @@
-package com.test.security.dto;
+package com.test.oauth2.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,14 +7,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MemberDTO {
+public class UserDTO {
 	
-	private Long seq;
 	private String username;
-	private String password;
+	private String name;
 	private String role;
-
+	
 }
+
+
+
 
 
 

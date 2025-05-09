@@ -48,9 +48,14 @@ Spring Boot + Security
 - templates > "inc" > "header.html"            
              
 
+- security > "script.sql"
+- templates > "register.html"
 
-
-
+- DB 기반 로그인
+    - 시큐리티 <-> member 테이블
+    - "com.test.security.service" > "CustomUserDetailsService.java"
+    - com.test.security.dto > "CustomUserDetails.java"
+    
 
 
 
