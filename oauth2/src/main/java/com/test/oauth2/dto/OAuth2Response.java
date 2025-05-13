@@ -13,8 +13,14 @@ public interface OAuth2Response {
 	
 	//이름
 	String getName();
-
+	
 }
+
+
+
+
+
+
 
 
 

@@ -69,6 +69,15 @@ OAuth 2.0
                         > "UserDTO.java"
                         > "CustomOAuth2User.java"
 
+- oauth2 > "script.sql"
+
+- "com.test.oauth2.entity" > "User.java"
+- "com.test.oauth2.repository" > "UserRepository.java"(I)
+- com.test.oauth2.service > "OAuth2SuccessHandler.java"
+
+
+
+
 
 
 

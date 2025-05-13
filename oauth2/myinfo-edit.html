@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 정보 수정</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5A6ACF;
+            --text-color: #212121;
+            --secondary-text: #7c8ba1;
+            --light-bg: #f0f6ff;
+            --white: #ffffff;
+            --shadow-neumorphic: 0 4px 12px rgba(90, 106, 207, 0.08);
+            --border-radius: 16px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--light-bg);
+        }
+
+        /* 폰 프레임 유지 */
+        .phone-container {
+            position: relative;
+            width: 390px;
+            height: 844px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 30px;
+            background-color: #000;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 40;
+        }
+
+        .status-bar {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            background-color: var(--white);
+            position: relative;
+            z-index: 30;
+        }
+
+        .time {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .status-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .signal {
+            display: flex;
+            align-items: flex-end;
+            height: 16px;
+        }
+
+        .signal div {
+            width: 4px;
+            background-color: #000;
+            margin-right: 2px;
+            border-radius: 1px;
+        }
+
+        .signal div:nth-child(1) {
+            height: 4px;
+        }
+
+        .signal div:nth-child(2) {
+            height: 7px;
+        }
+
+        .signal div:nth-child(3) {
+            height: 10px;
+        }
+
+        .signal div:nth-child(4) {
+            height: 13px;
+            margin-right: 0;
+        }
+
+        .app-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 72px;
+            background-color: var(--white);
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            z-index: 20;
+        }
+
+        .app-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .app-date {
+            font-size: 14px;
+            color: var(--secondary-text);
+            margin-top: 4px;
+        }
+
+        .app-container {
+            height: calc(100% - 65px - 72px - 44px);
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        /* 수정 UI 스타일 */
+        .myinfo-edit-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px;
+            gap: 24px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-neumorphic);
+            border: 1px solid rgba(224, 230, 255, 0.7);
+        }
+
+        .avatar-section {
+            margin-bottom: 10px;
+        }
+
+        .avatar-section .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #fff;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-color);
+        }
+
+        .input-group input {
+            padding: 16px 18px;
+            border-radius: 12px;
+            border: 1px solid #f0f4fa;
+            background: #f7f9ff;
+            font-size: 15px;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(90, 106, 207, 0.1);
+        }
+
+        .button-section {
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #5A6ACF, #7b8cde);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(90, 106, 207, 0.2);
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(135deg, #4a59b9, #6a7bc8);
+        }
+
+        .save-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 하단 메뉴바 */
+        .menu-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+            z-index: 10;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #aaa;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item.active {
+            color: var(--primary-color);
+        }
+
+        .menu-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="phone-container">
+    <!-- 상태바 -->
+    <div class="notch"></div>
+    <div class="status-bar">
+        <div class="time">9:41</div>
+        <div class="status-icons">
+            <div class="signal">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 앱 헤더 -->
+    <div class="app-header">
+        <div class="app-title">감다 일기</div>
+        <div class="app-date">내 정보 수정</div>
+    </div>
+
+    <!-- 컨텐츠 -->
+    <div class="app-container">
+        <div class="myinfo-edit-container">
+            <div class="avatar-section">
+                <div class="avatar">😊</div>
+            </div>
+
+            <form action="updateProfile.do" method="post">
+                <div class="input-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" value="김감정" placeholder="이름을 입력하세요">
+                </div>
+                
+                <div class="input-group">
+                    <label for="nickname">닉네임</label>
+                    <input type="text" id="nickname" name="nickname" value="감다일기" placeholder="닉네임을 입력하세요">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" value="emotion@example.com" placeholder="이메일을 입력하세요">
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">전화번호</label>
+                    <input type="tel" id="phone" name="phone" value="010-1234-5678" placeholder="전화번호를 입력하세요">
+                </div>
+
+                <div class="button-section">
+                    <button type="submit" class="save-btn">저장하기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 하단 메뉴 -->
+    <div class="menu-bar">
+        <div class="menu-item">
+            <div class="menu-icon">📖</div>
+            <div>일기</div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">📊</div>
+            <div>통계</div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">📆</div>
+            <div>달력</div>
+        </div>
+        <div class="menu-item active">
+            <div class="menu-icon">👤</div>
+            <div>마이</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

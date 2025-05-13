@@ -7,7 +7,9 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import com.test.oauth2.Oauth2Application;
+import com.test.oauth2.controller.MyController;
 import com.test.oauth2.dto.CustomOAuth2User;
+import com.test.oauth2.dto.GoogleResponse;
 import com.test.oauth2.dto.NaverResponse;
 import com.test.oauth2.dto.OAuth2Response;
 import com.test.oauth2.dto.UserDTO;
@@ -15,15 +17,12 @@ import com.test.oauth2.dto.UserDTO;
 @Service
 public class CustomOAuth2UserSerivce extends DefaultOAuth2UserService {
 
-    private final Oauth2Application oauth2Application;
-
-    CustomOAuth2UserSerivce(Oauth2Application oauth2Application) {
-        this.oauth2Application = oauth2Application;
-    }
 
 	//리소스 서버로부터 받아오는 개인 정보 > 네이버 회원 정보
 	@Override
 	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+		
+		System.out.println("============================");
 		
 		OAuth2User oAuth2User = super.loadUser(userRequest);
 		System.out.println("받아온 개인 정보: " + oAuth2User);
@@ -67,6 +66,8 @@ public class CustomOAuth2UserSerivce extends DefaultOAuth2UserService {
 			
 		} else if (registrationId.equals("google")) {
 			
+			oAuth2Response = new GoogleResponse(oAuth2User.getAttributes());
+			
 		}
 		
 		//받아온 네이버 정보 > 스프링 시큐리티
@@ -78,8 +79,9 @@ public class CustomOAuth2UserSerivce extends DefaultOAuth2UserService {
 		userDTO.setUsername(oAuth2Response.getProvider() + " " + oAuth2Response.getProviderId());
 		userDTO.setName(oAuth2Response.getName());
 		userDTO.setRole("ROLE_MEMBER");
+		userDTO.setEmail(oAuth2Response.getEmail());
 		
-		return new CustomOAuth2User(userDTO);
+		return new CustomOAuth2User(userDTO); 
 	}
 	
 }

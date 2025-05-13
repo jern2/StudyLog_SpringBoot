@@ -1,0 +1,56 @@
+application.yml
+- openid 삭제
+
+CutomOAuth2UserService 수정 + GoogleResponse 구현
+
+
+구글로 로그인 > 테스트
+
+DB 작업 설정
+- JPA 추가하기
+- build.gradle > 주석 풀기
+
+DB 테이블 생성
+
+-- oauth2
+create table tblUser (
+    seq number primary key,
+
+    username varchar2(100) not null unique,
+    name varchar2(100) not null,
+    email varchar2(100) not null,
+
+    age number not null,
+    address varchar2(100) not null
+);
+create sequence seqUser;
+
+select * from tblUser;
+
+엔티티 추가
+- User.java
+
+리포지토리 추가
+- UserRepository.java
+
+DTO 수정
+- age, email, address 추가
+
+CustomOAuth2User 수정
+- age, email, address 추가
+
+OAuth2SuccessHandler 추가
+
+SecurityConfig에 successHandler 추가
+
+테스트 > 핸들러 호출 유무 확인
+
+RegisterController.java + addinfo.html 추가
+
+SecurityConfig에 /addinfo 허용
+
+테스트
+
+
+
+

@@ -4,9 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.test.oauth2.service.CustomOAuth2UserSerivce;
+import com.test.oauth2.service.OAuth2SuccessHandler;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig {
 	
 	private final CustomOAuth2UserSerivce customOAuth2UserSerivce;
+	private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
 	//암호 인코더 > 필요(X)
 	@Bean
@@ -35,6 +38,7 @@ public class SecurityConfig {
 			.requestMatchers("/").permitAll()
 			.requestMatchers("/login/**").permitAll()
 			.requestMatchers("/oauth2/**").permitAll()
+			.requestMatchers("/register/**").permitAll()
 			.anyRequest().authenticated()
 		);
 		
@@ -42,6 +46,7 @@ public class SecurityConfig {
 		//- formLogin() > oauth2Login()
 		http.oauth2Login(auth -> auth
 			.loginPage("/login")
+			.successHandler(oAuth2SuccessHandler) //로그인 성공 후 호출 > 첫방문 or 재방문?
 			.userInfoEndpoint(config 
 						-> config.userService(customOAuth2UserSerivce))
 		);

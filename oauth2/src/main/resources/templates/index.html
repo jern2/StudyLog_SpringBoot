@@ -17,8 +17,9 @@
     <h2>Index</h2>
     
     <div>
-        <div th:text="${username}"></div>
-        <div th:text="${role}"></div>
+        <div th:text="'username:' + ${username}"></div>
+        <div th:text="'role: ' + ${role}"></div>
+        <hr>
         <div th:text="${authentication}"></div>
     </div>
     
